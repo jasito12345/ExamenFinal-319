@@ -34,10 +34,10 @@ scala> file.collect()                                                           
 scala> val filtro = cadenasRDD.filter(line => line.contains("quefinal"))            // Se busca los elementos de la colección que contengan la cadena "quefinal"
 filtro: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[1] at filter at <console>:23
 
-scala> val fileNotFound = sc.textFile("/7añljdlsjd/alkls/", 6)
+scala> val fileNotFound = sc.textFile("/7añljdlsjd/alkls/", 6)                      // Se abre una referencia al archivo "/7añljdlsjd/alkls/" dentro del contexto por defecto "sc" de Spark, pero el archivo no se encduentra o no existe
 fileNotFound: org.apache.spark.rdd.RDD[String] = /7añljdlsjd/alkls/ MapPartitionsRDD[3] at textFile at <console>:23
 
-scala> fileNotFound.collect()
+scala> fileNotFound.collect()                                                       // Se intenta recopilar los datos del un objeto "fileNotFound" que no se encuentra o no existe
 org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/7añljdlsjd/alkls
   at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:304)
   at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:244)
