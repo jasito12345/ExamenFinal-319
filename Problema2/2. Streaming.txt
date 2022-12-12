@@ -17,28 +17,28 @@ Using Scala version 2.12.15 (OpenJDK 64-Bit Server VM, Java 11.0.17)
 Type in expressions to have them evaluated.
 Type :help for more information.
 
-scala> import org.apache.spark.streaming.StreamingContext
+scala> import org.apache.spark.streaming.StreamingContext                     // Importación de librería 
 import org.apache.spark.streaming.StreamingContext
 
-scala> import org.apache.spark.streaming.dstream.ReceiverInputDStream
+scala> import org.apache.spark.streaming.dstream.ReceiverInputDStream         // Importación de librería 
 import org.apache.spark.streaming.dstream.ReceiverInputDStream
 
-scala> import org.apache.spark.streaming.Seconds
+scala> import org.apache.spark.streaming.Seconds                              // Importación de librería 
 import org.apache.spark.streaming.Seconds
 
-scala> val streamingContext: StreamingContext = new StreamingContext(sparkContext, Seconds(20))
+scala> val streamingContext: StreamingContext = new StreamingContext(sparkContext, Seconds(20))       // Se crea un contexto de Streaming, pero no se encuentra el contexto sparkContext
 <console>:25: error: not found: value sparkContext
        val streamingContext: StreamingContext = new StreamingContext(sparkContext, Seconds(20))
                                                                      ^
 
-scala> val streamingContext: StreamingContext = new StreamingContext(sc, Seconds(20))
+scala> val streamingContext: StreamingContext = new StreamingContext(sc, Seconds(20))                 // Se crea un contexto de Streaming "sc" el cual procesa datos cada 20 segundos     
 streamingContext: org.apache.spark.streaming.StreamingContext = org.apache.spark.streaming.StreamingContext@6e46f5c1
 
-scala> val lines: ReceiverInputDStream[String] = streamingContext.socketTextStream("localhost", 9999)
+scala> val lines: ReceiverInputDStream[String] = streamingContext.socketTextStream("localhost", 9999) // Se crea un steam que recepciona datos en el puerto 9999
 lines: org.apache.spark.streaming.dstream.ReceiverInputDStream[String] = org.apache.spark.streaming.dstream.SocketInputDStream@74f47eab
 
-scala> lines.start()
+scala> lines.start()                // Se inicia la recolección de datos
 
-scala> lines.stop()
+scala> lines.stop()                 // Se detiene la recolección de datos
 
 scala>
