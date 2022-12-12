@@ -17,26 +17,26 @@ Using Scala version 2.12.15 (OpenJDK 64-Bit Server VM, Java 11.0.17)
 Type in expressions to have them evaluated.
 Type :help for more information.
 
-scala> import org.apache.spark.sql.SparkSession
+scala> import org.apache.spark.sql.SparkSession             //Importación de librería
 import org.apache.spark.sql.SparkSession
 
-scala> import org.apache.spark.sql.Dataset
+scala> import org.apache.spark.sql.Dataset                  //Importación de librería
 import org.apache.spark.sql.Dataset
 
-scala> import org.apache.spark.sql.DataFrame
+scala> import org.apache.spark.sql.DataFrame                //Importación de librería
 import org.apache.spark.sql.DataFrame
 
-scala> val spark: SparkSession = SparkSession.builder().master("local[*]").appName("simple-app").getOrCreate()
+scala> val spark: SparkSession = SparkSession.builder().master("local[*]").appName("simple-app").getOrCreate()    // Creación de una nueva sesión 
 22/12/12 02:40:25 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
 spark: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@7076714c
 
-scala> val dataSet: Dataset[String] = spark.read.textFile("textfile.csv")
+scala> val dataSet: Dataset[String] = spark.read.textFile("textfile.csv")     // Abre el archivo "textfile.csv" dentro de la sesion de Spark creada y se carga en un objeto DataSet
 dataSet: org.apache.spark.sql.Dataset[String] = [value: string]
 
-scala> val df: DataFrame = dataSet.toDF()
+scala> val df: DataFrame = dataSet.toDF()                                     // Almacena el dataset a un DataFrame y se guarda en un objeto df
 df: org.apache.spark.sql.DataFrame = [value: string]
 
-scala> df.show()
+scala> df.show()                                                              // Mostramos el contenido del DataFrame
 +---------------+
 |          value|
 +---------------+
