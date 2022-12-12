@@ -37,7 +37,8 @@ scala> val df: DataFrame = dataSet.toDF()
 df: org.apache.spark.sql.DataFrame = [value: string]
 
 scala> df.show()
-+---------------+|          value|
++---------------+
+|          value|
 +---------------+
 |1.1,2.2,1.4,0.2|
 |1.5,3.0,1.4,0.2|
