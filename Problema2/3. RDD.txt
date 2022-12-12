@@ -17,21 +17,21 @@ Using Scala version 2.12.15 (OpenJDK 64-Bit Server VM, Java 11.0.17)
 Type in expressions to have them evaluated.
 Type :help for more information.
 
-scala> val cadenas = Array("Docentes", "inteligenciaArtificial", "quefinal")
+scala> val cadenas = Array("Docentes", "inteligenciaArtificial", "quefinal")        // Se inicia un Array con tres cadenas
 cadenas: Array[String] = Array(Docentes, inteligenciaArtificial, quefinal)
 
-scala> val cadenasRDD = sc . parallelize (cadenas)
+scala> val cadenasRDD = sc . parallelize (cadenas)                                  // Se convierte el array de cadenas en una colección para trabajar en paralelo
 cadenasRDD: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[0] at parallelize at <console>:24
 
-scala> cadenasRDD.collect()
+scala> cadenasRDD.collect()                                                         // Recopilación de los datos de la colección en paralelo
 res0: Array[String] = Array(Docentes, inteligenciaArtificial, quefinal)         
 
-scala> file.collect()
+scala> file.collect()                                                               // Recopilación de datos de un objeto "file" que no se encuentran o no existen
 <console>:23: error: not found: value file
        file.collect()
        ^
 
-scala> val filtro = cadenasRDD.filter(line => line.contains("quefinal"))
+scala> val filtro = cadenasRDD.filter(line => line.contains("quefinal"))            // Se busca los elementos de la colección que contengan la cadena "quefinal"
 filtro: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[1] at filter at <console>:23
 
 scala> val fileNotFound = sc.textFile("/7añljdlsjd/alkls/", 6)
