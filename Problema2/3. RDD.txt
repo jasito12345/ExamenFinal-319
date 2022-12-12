@@ -7,10 +7,10 @@ Spark context Web UI available at http://192.168.100.37:4040
 Spark context available as 'sc' (master = local[*], app id = local-1670828147964).
 Spark session available as 'spark'.
 Welcome to
-      __              __
-     / _/_  _ __/ /_
-    \ \/ _ \/ _ `/ _/  '_/
-   /_/ ._/\,// //\\   version 3.3.1
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 3.3.1
       /_/
          
 Using Scala version 2.12.15 (OpenJDK 64-Bit Server VM, Java 11.0.17)
@@ -34,11 +34,11 @@ scala> file.collect()
 scala> val filtro = cadenasRDD.filter(line => line.contains("quefinal"))
 filtro: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[1] at filter at <console>:23
 
-scala> val fileNotFound = sc.textFile("/7añljdlsjd/alkls/", 6)
-fileNotFound: org.apache.spark.rdd.RDD[String] = /7añljdlsjd/alkls/ MapPartitionsRDD[3] at textFile at <console>:23
+scala> val fileNotFound = sc.textFile("/7aÃ±ljdlsjd/alkls/", 6)
+fileNotFound: org.apache.spark.rdd.RDD[String] = /7aÃ±ljdlsjd/alkls/ MapPartitionsRDD[3] at textFile at <console>:23
 
 scala> fileNotFound.collect()
-org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/7añljdlsjd/alkls
+org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/7aÃ±ljdlsjd/alkls
   at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:304)
   at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:244)
   at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:332)
@@ -57,7 +57,7 @@ org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:
   at org.apache.spark.rdd.RDD.withScope(RDD.scala:406)
   at org.apache.spark.rdd.RDD.collect(RDD.scala:1020)
   ... 47 elided
-Caused by: java.io.IOException: Input path does not exist: file:/7añljdlsjd/alkls
+Caused by: java.io.IOException: Input path does not exist: file:/7aÃ±ljdlsjd/alkls
   at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:278)
   ... 63 more
 
